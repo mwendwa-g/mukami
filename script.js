@@ -6,7 +6,7 @@ const hotdeals = [
         description: "Air Jordan",
         firstprice: 600.00,
         secondprice: 4500.00,
-        image: "/images/be_yourself2-removebg-preview.png",
+        image: "images/be_yourself2-removebg-preview.png",
     },
     {
         id: 2,
