@@ -6,6 +6,7 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: "Poppins", serif;
+    scroll-behavior: smooth;
 }
 
 :root{
@@ -23,6 +24,23 @@ section{
 body{
     padding-bottom: 4rem;
     overflow-x: hidden;
+}
+
+/*to up*/
+.to-up{
+    position: fixed;
+    bottom: 4rem;
+    right: 0.5rem;
+    background-color: green;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: .2rem;
+    z-index: 100;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /*section home*/
 .home{
@@ -67,8 +85,7 @@ body{
     align-items: center;
     margin: 0 3rem 0 3rem;
 }
-.home .contact div i,
-.home .location i{
+.home .contact div i{
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
@@ -76,6 +93,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 .2rem 0 0;
 }
 .home .location{
     position: absolute;
@@ -85,11 +103,15 @@ body{
     left: 50%;
     transform: translateX(-50%);
 }
+.home .location i{
+    color: rgb(16, 211, 16);
+    background: transparent;
+}
 
 /*section hotdeals*/
 .hot-deals .container{
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 0.5rem;
 }
 .hot-deals .container .product{
@@ -97,10 +119,10 @@ body{
     padding: 0.2rem;
     position: relative;
     background-color: #ffffff;
-    height: 300px;
+    height: 17vw;
     overflow: hidden;
-    box-shadow:  0 0 3px rgb(34, 34, 34);
-    border-radius: 1rem;
+    box-shadow:  0 0 3px rgb(150, 149, 149);
+    border-radius: .3rem;
 }
 .hot-deals .container .product .ftre{
     position: absolute;
@@ -149,18 +171,21 @@ body{
 }
 .hot-deals .container .product .image{
     width: 100%;
-    height: 270px;
+    height: calc(17vw - 3rem);
     object-fit: contain;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
 }
 .hot-deals .container .product .image img{
     width: 80%;
 }
 .hot-deals .container .product .bx-cart{
-    width: 2.4rem;
-    height: 2.4rem;
-    font-size: 1.7rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.5rem;
     padding: 0.3rem;
-    border: 3px solid rgb(14, 223, 14);
+    border: 2px solid rgb(14, 223, 14);
     border-radius: 50%;
     font-weight: 400;
     display: flex;
@@ -169,11 +194,13 @@ body{
     position: absolute;
     right: 0;
     bottom: 2.4rem;
+    margin: 0 .2rem 0 0;
+    color: #888;
 }
 .hot-deals .container .product .description{
     position: absolute;
     bottom: 1.4rem;
-    line-height: 1;
+    font-size: 0.8rem;
 }
 .hot-deals .container .product .price{
     position: absolute;
@@ -182,6 +209,7 @@ body{
     line-height: 1.8;
     display: flex;
     flex-wrap: wrap;
+    font-size: .7rem;
 }
 .hot-deals .container .product .first-price{
     text-decoration: line-through;
@@ -216,51 +244,43 @@ body{
 
 
 /*breakpoints*/
+
 @media (max-width:1350px){
-    .hot-deals .container{
-        grid-template-columns: repeat(7, 1fr);
-    }
-    .hot-deals .container .product{
-        height: 290px;
-    }
-    .hot-deals .container .product .image{
-        height: 260;
-    }
-    .home .logo{
-        font-size: 3rem;
-    }
-    .home h1{
-        font-size: 1.7rem;
-    }
-    .home .contact .div{
-        font-size: 1rem;
-    }
-    .home .contact div i,
-    .home .location i{
-        width: 1.5rem;
-        height: 1.5rem;
-        font-size: 1rem;
-    }
-    .home p{
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width:1250px){
-    .hot-deals .container{
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
-
-@media (max-width:1150px){
     .hot-deals .container{
         grid-template-columns: repeat(5, 1fr);
     }
+    .hot-deals .container .product{
+        height: 22vw;
+    }
+    .hot-deals .container .product .image{
+        height: calc(22vw - 3rem);
+        object-fit: contain;
+        display: flex;
+        align-items: center;
+    }
+    .hot-deals .container .product .image img{
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 
-@media (max-width:1050px){
+
+@media (max-width:1150px){
     .hot-deals .container{
         grid-template-columns: repeat(4, 1fr);
+    }
+    .hot-deals .container .product{
+        height: 30vw;
+    }
+    .hot-deals .container .product .image{
+        height: calc(30vw - 3rem);
+        object-fit: contain;
+        display: flex;
+        align-items: center;
+    }
+    .hot-deals .container .product .image img{
+        width: 100%;
+        margin: 0 auto;
     }
 }
 
@@ -269,10 +289,55 @@ body{
         grid-template-columns: repeat(3, 1fr);
     }
     .hot-deals .container .product{
-        height: 250px;
+        height: 40vw;
     }
     .hot-deals .container .product .image{
-        height: 220px;
+        height: calc(40vw - 3rem);
+        object-fit: contain;
+        display: flex;
+        align-items: center;
+    }
+    .hot-deals .container .product .image img{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .home .logo{
+        font-size: 3rem;
+    }
+    .home h1{
+        font-size: 2rem;
+    }
+    .home .contact div{
+        font-size: .7rem;
+    }
+    .home .contact div i{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .home .location p{
+        font-size: 0.7rem;
+    }
+    .home .contact{
+        padding: 0;
+    }
+}
+
+@media (max-width: 750px){
+    .hot-deals .container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .hot-deals .container .product{
+        height: 40vw;
+    }
+    .hot-deals .container .product .image{
+        height: calc(40vw - 3rem);
+        object-fit: contain;
+        display: flex;
+        align-items: center;
+    }
+    .hot-deals .container .product .image img{
+        width: 100%;
+        margin: 0 auto;
     }
 }
 
@@ -292,6 +357,15 @@ body{
     .hot-deals .container .product .image img{
         width: 100%;
         margin: 0 auto;
+    }
+    .home .logo{
+        font-size: 3rem;
+    }
+    .home h1{
+        font-size: 1rem;
+    }
+    .home{
+        height: 40vh;
     }
 }
 
