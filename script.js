@@ -20,7 +20,7 @@ const hotdeals = [
         description: "50l Waterproof...",
         firstprice: 6500.00,
         secondprice: 4000.00,
-        image: "/images/hot deal1.png",
+        image: "images/hot deal1.png",
     },
     {
         id: 2,
@@ -38,7 +38,7 @@ const hotdeals = [
         description: "Summer Outdo...",
         firstprice: 5500.00,
         secondprice: 4500.00,
-        image: "/images/hot deal3.jpg",
+        image: "images/hot deal3.jpg",
     },
     {
         id: 4,
@@ -47,7 +47,7 @@ const hotdeals = [
         description: "High Quality M...",
         firstprice: 3000.00,
         secondprice: 1800.00,
-        image: "/images/hot deal4.jpg",
+        image: "images/hot deal4.jpg",
     },
     {
         id: 5,
@@ -56,7 +56,7 @@ const hotdeals = [
         description: "Siwar Tactical",
         firstprice: 5500.00,
         secondprice: 3499.00,
-        image: "/images/hot deal5.jpg",
+        image: "images/hot deal5.jpg",
     },
     {
         id: 6,
@@ -65,7 +65,7 @@ const hotdeals = [
         description: "Belleville Vibra",
         firstprice: 7500.00,
         secondprice: 5999.00,
-        image: "/images/hot deal6.jpg",
+        image: "images/hot deal6.jpg",
     }
 ]
 
