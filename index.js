@@ -1,20 +1,27 @@
-//showing and disappearing wishlist box
-const wishShow = document.querySelector('.wish-show');
-const wishBox = document.querySelector('.wishlist');
-const wishcloseBtn = document.querySelector('.wishclose');
-wishcloseBtn.addEventListener('click', ()=>{
-    wishBox.classList.toggle('active');
+const cartIcon = document.querySelector('.nav-bottom a i.bx-cart');
+const closeBtn = document.querySelector('.cartTab .close');
+const cart = document.querySelector('.cartTab');
+cartIcon.addEventListener('click',()=>{
+    cart.classList.toggle('active');
 })
-wishShow.addEventListener('click', ()=>{
-    wishBox.classList.toggle('active');
+closeBtn.addEventListener('click',()=>{
+    cart.classList.toggle('active');
 })
-console.log(wishBox)
 
 //showing and hiding search div
 const searchIcon = document.querySelector('.search .bx-search');
 const searchContainer = document.querySelector('.search');
 searchIcon.addEventListener('click', ()=>{
     searchContainer.classList.toggle('active');
+});
+
+const wishIcon = document.querySelector('bx-heart');
+document.body.addEventListener('click',(event)=>{
+    if(event.target.classList.contains('bx-heart')){
+        pos = event.target.closest('.product');
+        pos.classList.toggle('active')
+        wishIcon.classList.toggle('active');
+    }
 })
 
 
@@ -102,39 +109,11 @@ hotdeals.forEach((deal, index)=>{
 });
 
 
-/*
-const hotdealsContainer = document.querySelector('.hotdealsContainer');
-hotdealsContainer.innerHTML = '';
-
-
-hotdeals.forEach((hotDeal, index)=>{
-    hotdealProduct = document.createElement('div');
-    hotdealProduct.className = ".hotdealsContainer product";
-    hotdealProduct.innerHTML = `<div class="ftre">
-                    <p class="featured">${hotdeals[index].featured}</p>
-                    <p class="discount">${hotdeals[index].discount}</p>
-                </div>
-                <div class="l-icons" style="visibility: hidden";>
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="${hotdeals[index].image}" alt="">
-                </div>
-                <i class='bx bx-cart' style="visibility: hidden";></i>
-                <p class="description">${hotdeals[index].description}</p>
-                <p class="price"><span class="first-price">Ksh${hotdeals[index].firstprice}</span><span style="visibility: hidden";>0</span>Ksh${hotdeals[index].secondprice}</p>
-                `;
-                hotdealsContainer.appendChild(hotdealProduct);
-});
-*/
-
 
 //section new arrivals
 const newarrivals = [
     {
-        id: 1,
+        id: 100,
         featured: "FEATURED",
         discount: "SALE",
         description: "1PCs Baofeng U...",
@@ -143,7 +122,7 @@ const newarrivals = [
         image: "images/new arrival1.jpg",
     },
     {
-        id: 2,
+        id: 101,
         featured: "FEATURED",
         discount: "SALE",
         description: "Multi-functional Safet...",
@@ -152,7 +131,7 @@ const newarrivals = [
         image: "images/new arrival2.png",
     },
     {
-        id: 3,
+        id: 102,
         featured: "FEATURED",
         discount: "SALE",
         description: "High Quality Double Dog...",
@@ -161,7 +140,7 @@ const newarrivals = [
         image: "images/new arrival3.jpg",
     },
     {
-        id: 4,
+        id: 103,
         featured: "FEATURED",
         discount: "SALE",
         description: "Tactical Soft Shell Waterp...",
@@ -170,7 +149,7 @@ const newarrivals = [
         image: "images/new arrival5.jpg",
     },
     {
-        id: 5,
+        id: 104,
         featured: "FEATURED",
         discount: "SALE",
         description: "High Quality Spandex...",
@@ -179,7 +158,7 @@ const newarrivals = [
         image: "images/new arrival4.jpg",
     },
     {
-        id: 6,
+        id: 105,
         featured: "FEATURED",
         discount: "SALE",
         description: "REMAX-RPP 550",
@@ -188,7 +167,7 @@ const newarrivals = [
         image: "images/new arrival6.jpg",
     },
     {
-        id: 7,
+        id: 106,
         featured: "FEATURED",
         discount: "SALE",
         description: "Lightweight Multi Pocket",
@@ -197,7 +176,7 @@ const newarrivals = [
         image: "images/new arrival7.png",
     },
     {
-        id: 8,
+        id: 107,
         featured: "FEATURED",
         discount: "SALE",
         description: "3 Len Tactical Goggle..",
@@ -206,7 +185,7 @@ const newarrivals = [
         image: "images/new arrival8.png",
     },
     {
-        id: 8,
+        id: 108,
         featured: "FEATURED",
         discount: "SALE",
         description: "Baofeng UV82 3800MaH",
@@ -242,10 +221,18 @@ newarrivals.forEach((arrival, index)=>{
 })
 
 
+
+let carts = [];
+const listCart = document.querySelector('.listCart');
+
+
+
+
+
 //section  clothing
 const clothingItems = [
     {
-        id: 1,
+        id: 200,
         featured: "FEATURED",
         discount: "SALE",
         description: "Light Weight Multipocket",
@@ -254,7 +241,7 @@ const clothingItems = [
         image: "images/clothing1.png",
     },
     {
-        id: 2,
+        id: 201,
         featured: "FEATURED",
         discount: "SALE",
         description: "IX7 Tactical Cargo Pants CP",
@@ -263,7 +250,7 @@ const clothingItems = [
         image: "images/clothing3.jpg",
     },
     {
-        id: 3,
+        id: 202,
         featured: "FEATURED",
         discount: "SALE",
         description: "High Quality Spandex Tactical",
@@ -272,7 +259,7 @@ const clothingItems = [
         image: "images/clothing2.jpg",
     },
     {
-        id: 4,
+        id: 203,
         featured: "FEATURED",
         discount: "SALE",
         description: "High Quality Spandex Tactical",
@@ -281,7 +268,7 @@ const clothingItems = [
         image: "images/clothing4.jpg",
     },
     {
-        id: 5,
+        id: 204,
         featured: "FEATURED",
         discount: "SALE",
         description: "High Quality Spandex Tactical",
@@ -290,7 +277,7 @@ const clothingItems = [
         image: "images/clothing5.jpg",
     },
     {
-        id: 6,
+        id: 205,
         featured: "FEATURED",
         discount: "SALE",
         description: "High Quality Spandex Tactical",
@@ -299,7 +286,7 @@ const clothingItems = [
         image: "images/clothing6.jpg",
     },
     {
-        id: 7,
+        id: 206,
         featured: "FEATURED",
         discount: "SALE",
         description: "Tactical Waterproof Jacket",
@@ -308,7 +295,7 @@ const clothingItems = [
         image: "images/clothing7.jpg",
     },
     {
-        id: 8,
+        id: 207,
         featured: "FEATURED",
         discount: "SALE",
         description: "Pave Round Hawk Tactical Jacket",
@@ -318,36 +305,156 @@ const clothingItems = [
     }
 ]
 
-const clothingsectionContainer = document.querySelector('.clothingsectionContainer');
-clothingsectionContainer.innerHTML = "";
 
-clothingItems.forEach((clothItem, index)=>{
-    clothingitemProduct = document.createElement('div');
-    clothingitemProduct.className = ".clothingsectionContainer product";
-    clothingitemProduct.innerHTML = `<div class="ftre">
-                    <p class="featured" style="visibility: hidden";>FEATURED</p>
-                    <p class="discount">${clothingItems[index].discount}</p>
-                </div>
-                <div class="l-icons" style="visibility: hidden";>
-                    <i class='bx bx-heart' style="visibility: visible";></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="${clothingItems[index].image}" alt="">
-                </div>
-                <i class='bx bx-cart addCart'></i>
-                <p class="description">${clothingItems[index].description}</p>
-                <p class="price"><span class="first-price">Ksh${clothingItems[index].firstprice}</span><span style="visibility: hidden";>0</span>Ksh${clothingItems[index].secondprice}</p>`;
-                clothingsectionContainer.appendChild(clothingitemProduct);
+const clothingItemsContainer = document.querySelector('.clothingsectionContainer');
+const cartContainer = document.querySelector('.listCart'); // Replace with your cart container class or ID
+let cartItems = []; // To track items added to the cart
+
+clothingItemsContainer.innerHTML = "";
+
+clothingItems.forEach((clothingItem) => {
+    const clothProduct = document.createElement('div');
+    clothProduct.className = "product";
+    clothProduct.dataset.id = clothingItem.id;
+    clothProduct.innerHTML = `
+        <div class="ftre">
+            <p class="discount">-${(((clothingItem.firstprice - clothingItem.secondprice) / clothingItem.firstprice) * 100).toFixed(0)}%</p>
+        </div>
+        <div class="l-icons">
+            <i class='bx bx-heart'></i>
+        </div>
+        <div class="image">
+            <img src="${clothingItem.image}" alt="${clothingItem.description}">
+        </div>
+        <i class='bx bx-cart'></i>
+        <p class="description">${clothingItem.description}</p>
+        <p class="price">
+            <span class="first-price">Ksh${clothingItem.firstprice}</span><span style="visibility: hidden;">0</span> Ksh${clothingItem.secondprice}
+        </p>
+    `;
+
+    const wishIcon = clothProduct.querySelector('.bx-heart');
+    wishIcon.addEventListener('click',()=>{
+        clothProduct.classList.toggle('active');
+        wishIcon.classList.toggle('active');
+    })
+
+    // Add event listener to the cart icon
+    const cartIcon = clothProduct.querySelector('.bx-cart');
+    cartIcon.addEventListener('click', () => {
+        addToCart(clothingItem);
+    });
+
+    clothingItemsContainer.appendChild(clothProduct);
 });
+
+// Function to add item to the cart
+function addToCart(item) {
+    
+    // Check if item is already in the cart
+    const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+
+    if (existingItem) {
+        // Increment quantity if the item is already in the cart
+        existingItem.quantity += 1;
+        alert(`${item.description} already in cart`)
+    } else {
+        // Add new item to the cart
+        cartItems.push({ ...item, quantity: 1 });
+        alert(`${item.description} added to cart`)
+    }
+
+    renderCart();
+    addCarttoMemory();
+}
+
+if(localStorage.getItem('cart')){
+    cartItems = JSON.parse(localStorage.getItem('cart'));
+    renderCart();
+}
+
+//memory
+function addCarttoMemory(){
+    localStorage.setItem('cart', JSON.stringify(cartItems))
+}
+
+
+// Function to render cart items
+function renderCart() {
+
+    cartContainer.innerHTML = ""; // Clear the cart before re-rendering
+    let totals = 0;
+
+    cartItems.forEach((cartItem) => {
+        const cartElement = document.createElement('div');
+        cartElement.className = "item";
+        cartElement.innerHTML = `
+            <div class="image">
+                <img src="${cartItem.image}" alt="${cartItem.description}">
+            </div>
+            <div class="name">
+                <p>${cartItem.description}</p>
+            </div>
+            <div class="totalPrice">
+                <p>${(cartItem.secondprice * cartItem.quantity).toFixed(0)}</p>
+            </div>
+            <div class="quantity">
+                <span class="minus">-</span>
+                <span>${cartItem.quantity}</span>
+                <span class="plus">+</span>
+            </div>
+        `;
+        
+        const cartHead  = document.getElementById('cartHead');
+        // Calculate the total price for each item and add to the total
+        totals += cartItem.secondprice * cartItem.quantity;
+        
+        cartHead.innerHTML = totals;
+
+        // Add event listeners for quantity adjustment
+        const minusButton = cartElement.querySelector('.minus');
+        const plusButton = cartElement.querySelector('.plus');
+
+        minusButton.addEventListener('click', () => {
+            updateQuantity(cartItem.id, -1);
+            addCarttoMemory();
+        });
+
+        plusButton.addEventListener('click', () => {
+            updateQuantity(cartItem.id, 1);
+            addCarttoMemory();
+        });
+        
+
+        cartContainer.appendChild(cartElement);
+
+    });
+    
+}
+
+// Function to update quantity
+function updateQuantity(itemId, change) {
+    const cartItem = cartItems.find(item => item.id === itemId);
+
+    if (cartItem) {
+        cartItem.quantity += change;
+
+        if (cartItem.quantity <= 0) {
+            // Remove item if quantity is 0 or less
+            cartItems = cartItems.filter(item => item.id !== itemId);
+            addCarttoMemory();
+        }
+
+        renderCart();
+    }
+}
 
 
 
 //clothing accessories
 const clothingAccessories = [
     {
-        id: 1,
+        id: 300,
         featured: "FEATURED",
         discount: "SALE",
         description: "3 Lens Tactical Goggles",
@@ -356,7 +463,7 @@ const clothingAccessories = [
         image: "images/clothingaccessory1.png",
     },
     {
-        id: 2,
+        id: 301,
         featured: "FEATURED",
         discount: "SALE",
         description: "Oudoor Tactical Adjustable",
@@ -365,7 +472,7 @@ const clothingAccessories = [
         image: "images/clothingaccessory2.png",
     },
     {
-        id: 3,
+        id: 302,
         featured: "FEATURED",
         discount: "SALE",
         description: "High Quality Double Chain",
@@ -374,7 +481,7 @@ const clothingAccessories = [
         image: "images/clothingaccessory3.jpg",
     },
     {
-        id: 4,
+        id: 303,
         featured: "FEATURED",
         discount: "SALE",
         description: "Breathable Handgloves",
@@ -383,7 +490,7 @@ const clothingAccessories = [
         image: "images/clothingaccessory4.jpg",
     },
     {
-        id: 5,
+        id: 304,
         featured: "FEATURED",
         discount: "SALE",
         description: "Fashionable Heavy Duty Belt",
@@ -392,7 +499,7 @@ const clothingAccessories = [
         image: "images/clothingaccessory5.jpg",
     },
     {
-        id: 6,
+        id: 305,
         featured: "FEATURED",
         discount: "SALE",
         description: "Leather Half Finger",
@@ -401,7 +508,7 @@ const clothingAccessories = [
         image: "images/clothingaccessory6.jpg",
     },
     {
-        id: 7,
+        id: 306,
         featured: "FEATURED",
         discount: "SALE",
         description: "Tactical One Point Adjust",
@@ -410,7 +517,7 @@ const clothingAccessories = [
         image: "images/clothingaccessory7.png",
     },
     {
-        id: 8,
+        id: 307,
         featured: "FEATURED",
         discount: "SALE",
         description: "New Mesh Punisher",
@@ -419,7 +526,7 @@ const clothingAccessories = [
         image: "images/clothingaccessory8.png",
     },
     {
-        id: 9,
+        id: 308,
         featured: "FEATURED",
         discount: "SALE",
         description: "New Mesh Punisher Brown",
@@ -428,7 +535,7 @@ const clothingAccessories = [
         image: "images/clothingaccessory9.png",
     },
     {
-        id: 10,
+        id: 309,
         featured: "FEATURED",
         discount: "SALE",
         description: "High Quality Fullfinger",
@@ -442,33 +549,41 @@ const clothingAccessories = [
 const clothingaccessoriesContainer = document.querySelector('.clothingaccessoriesContainer');
 clothingaccessoriesContainer.innerHTML = "";
 
-clothingAccessories.forEach((accesory, index)=>{
-    clothindaccesoryProduct = document.createElement('div');
-    clothindaccesoryProduct.className = ".clothingaccessoriesContainer product";
-    clothindaccesoryProduct.innerHTML = `
-                <div class="ftre">
-                    <p class="featured" style="visibility: hidden";>FEATURED</p>
-                    <p class="discount">${-(((clothingAccessories[index].firstprice - clothingAccessories[index].secondprice) / clothingAccessories[index].firstprice) * 100).toFixed(0)}%</p>
-                </div>
-                <div class="l-icons" style="visibility: hidden";>
-                    <i class='bx bx-heart' style="visibility: visible";></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="${clothingAccessories[index].image}" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">${clothingAccessories[index].description}</p>
-                <p class="price"><span class="first-price">Ksh${clothingAccessories[index].firstprice}</span><span style="visibility: hidden";>0</span>Ksh${clothingAccessories[index].secondprice}</p>`;
-                clothingaccessoriesContainer.appendChild(clothindaccesoryProduct);
+clothingAccessories.forEach((clothingAccessory)=>{
+    const clothingaccessoryProduct = document.createElement('div');
+    clothingaccessoryProduct.className = "product";
+    clothingaccessoryProduct.dataset.id = clothingAccessory.id;
+    clothingaccessoryProduct.innerHTML = `
+        <div class="ftre">
+            <p class="discount">-${(((clothingAccessory.firstprice - clothingAccessory.secondprice) / clothingAccessory.firstprice) * 100).toFixed(0)}%</p>
+        </div>
+        <div class="l-icons">
+            <i class='bx bx-heart'></i>
+        </div>
+        <div class="image">
+            <img src="${clothingAccessory.image}" alt="${clothingAccessory.description}">
+        </div>
+        <i class='bx bx-cart'></i>
+        <p class="description">${clothingAccessory.description}</p>
+        <p class="price">
+            <span class="first-price">Ksh${clothingAccessory.firstprice}</span> <span style="visibility: hidden;">0</span> Ksh${clothingAccessory.secondprice}
+        </p>
+    `;
+    const cartIcon = clothingaccessoryProduct.querySelector('.bx-cart');
+    cartIcon.addEventListener('click', () => {
+        addToCart(clothingAccessory);
+    });
+
+    clothingaccessoriesContainer.appendChild(clothingaccessoryProduct);
 })
+
+
 
 
 //section wrist watch products
 const wristWatches = [
     {
-        id: 1,
+        id: 400,
         featured: "FEATURED",
         discount: "SALE",
         description: "Spovan Bravo 2S",
@@ -477,7 +592,7 @@ const wristWatches = [
         image: "images/watch3.jpg",
     },
     {
-        id: 2,
+        id: 401,
         featured: "FEATURED",
         discount: "SALE",
         description: "SKMEI Fashion Sport",
@@ -486,7 +601,7 @@ const wristWatches = [
         image: "images/watch11.jpg",
     },
     {
-        id: 3,
+        id:402,
         featured: "FEATURED",
         discount: "SALE",
         description: "SKMEI Fashion Sport",
@@ -495,7 +610,7 @@ const wristWatches = [
         image: "images/watch3.jpg",
     },
     {
-        id: 4,
+        id: 403,
         featured: "FEATURED",
         discount: "SALE",
         description: "Fashion Sport White",
@@ -504,7 +619,7 @@ const wristWatches = [
         image: "images/watch4.jpg",
     },
     {
-        id: 5,
+        id: 404,
         featured: "FEATURED",
         discount: "SALE",
         description: "SKMEI Fashion Sport",
@@ -513,7 +628,7 @@ const wristWatches = [
         image: "images/watch6.jpg",
     },
     {
-        id: 6,
+        id: 405,
         featured: "FEATURED",
         discount: "SALE",
         description: "Fossil Men Townsman",
@@ -522,7 +637,7 @@ const wristWatches = [
         image: "images/watch5.jpg",
     },
     {
-        id: 7,
+        id: 406,
         featured: "FEATURED",
         discount: "SALE",
         description: "Spovan PR1",
@@ -531,7 +646,7 @@ const wristWatches = [
         image: "images/watch7.jpg",
     },
     {
-        id: 8,
+        id: 407,
         featured: "FEATURED",
         discount: "SALE",
         description: "Spovan SP710",
@@ -540,7 +655,7 @@ const wristWatches = [
         image: "images/watch8.png",
     },
     {
-        id: 9,
+        id: 408,
         featured: "FEATURED",
         discount: "SALE",
         description: "Casio Vintage A168",
@@ -549,7 +664,7 @@ const wristWatches = [
         image: "images/watch10.jpg",
     },
     {
-        id: 10,
+        id: 409,
         featured: "FEATURED",
         discount: "SALE",
         description: "Fossil Women's",
@@ -558,7 +673,7 @@ const wristWatches = [
         image: "images/watch12.jpg",
     },
     {
-        id: 11,
+        id: 410,
         featured: "FEATURED",
         discount: "SALE",
         description: "Spovan SPV 710",
@@ -567,7 +682,7 @@ const wristWatches = [
         image: "images/watch1.jpg",
     },
     {
-        id: 12,
+        id: 411,
         featured: "FEATURED",
         discount: "SALE",
         description: "Fossil Townsman",
@@ -579,34 +694,43 @@ const wristWatches = [
 ]
 
 const wristwatchesContainer = document.querySelector('.watchesContainer');
-wristwatchesContainer.innerHTML = "";
 
-wristWatches.forEach((wristwatch, index)=>{
-    wristwatchProduct = document.createElement('div');
-    wristwatchProduct.className = ".watchesContainer product";
-    wristwatchProduct.innerHTML = `
-                <div class="ftre">
-                    <p class="featured" style="visibility: hidden";>FEATURED</p>
-                    <p class="discount">${-(((wristWatches[index].firstprice - wristWatches[index].secondprice) / wristWatches[index].firstprice) * 100).toFixed(0)}%</p>
-                </div>
-                <div class="l-icons" style="visibility: hidden";>
-                    <i class='bx bx-heart' style="visibility: visible";></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="${wristWatches[index].image}" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">${wristWatches[index].description}</p>
-                <p class="price"><span class="first-price">Ksh${wristWatches[index].firstprice}</span><span style="visibility: hidden";>0</span>Ksh${wristWatches[index].secondprice}</p>`;
-                wristwatchesContainer.appendChild(wristwatchProduct);
-});
+wristwatchesContainer.innerHTML = "";
+wristWatches.forEach((watch)=>{
+    const watchProduct = document.createElement('div');
+    watchProduct.className = "product";
+    watchProduct.dataset.id = watch.id;
+    watchProduct.innerHTML = `
+        <div class="ftre">
+            <p class="discount">-${(((watch.firstprice - watch.secondprice) / watch.firstprice) * 100).toFixed(0)}%</p>
+        </div>
+        <div class="l-icons">
+            <i class='bx bx-heart'></i>
+        </div>
+        <div class="image">
+            <img src="${watch.image}" alt="${watch.description}">
+        </div>
+        <i class='bx bx-cart'></i>
+        <p class="description">${watch.description}</p>
+        <p class="price">
+            <span class="first-price">Ksh${watch.firstprice}</span> <span style="visibility: hidden;">0</span> Ksh${watch.secondprice}
+        </p>
+    `;
+    const cartIcon = watchProduct.querySelector('.bx-cart');
+    cartIcon.addEventListener('click', () => {
+        addToCart(watch);
+    });
+
+    wristwatchesContainer.appendChild(watchProduct);
+})
+
+
+
 
 //section bags
 const bags = [
     {
-        id: 1,
+        id: 500,
         featured: "FEATURED",
         discount: "SALE",
         description: "Chest Sling Bag",
@@ -615,7 +739,7 @@ const bags = [
         image: "images/bag1.jpg",
     },
     {
-        id: 2,
+        id: 501,
         featured: "FEATURED",
         discount: "SALE",
         description: "Light Weight Hydration",
@@ -624,7 +748,7 @@ const bags = [
         image: "images/bag2.png",
     },
     {
-        id: 3,
+        id: 502,
         featured: "FEATURED",
         discount: "SALE",
         description: "50l Waterproof",
@@ -633,7 +757,7 @@ const bags = [
         image: "images/bag3.png",
     },
     {
-        id: 4,
+        id: 503,
         featured: "FEATURED",
         discount: "SALE",
         description: "35l Multipurpose Durf",
@@ -642,7 +766,7 @@ const bags = [
         image: "images/bag4.jpg",
     },
     {
-        id: 5,
+        id: 504,
         featured: "FEATURED",
         discount: "SALE",
         description: "Tactical Chestsling",
@@ -651,7 +775,7 @@ const bags = [
         image: "images/bag5.jpg",
     },
     {
-        id: 6,
+        id: 505,
         featured: "FEATURED",
         discount: "SALE",
         description: "Chestsling Bag",
@@ -660,7 +784,7 @@ const bags = [
         image: "images/bag6.jpg",
     },
     {
-        id: 7,
+        id: 506,
         featured: "FEATURED",
         discount: "SALE",
         description: "Chestsling Bag",
@@ -669,7 +793,7 @@ const bags = [
         image: "images/bag7.jpg",
     },
     {
-        id: 8,
+        id: 507,
         featured: "FEATURED",
         discount: "SALE",
         description: "Outdoor Waterproof",
@@ -678,7 +802,7 @@ const bags = [
         image: "images/bag8.jpg",
     },
     {
-        id: 9,
+        id: 508,
         featured: "FEATURED",
         discount: "SALE",
         description: "Waterproof Pouch",
@@ -687,7 +811,7 @@ const bags = [
         image: "images/bag10.jpg",
     },
     {
-        id: 10,
+        id: 509,
         featured: "FEATURED",
         discount: "SALE",
         description: "Outdoor Bag",
@@ -696,7 +820,7 @@ const bags = [
         image: "images/bag9.jpg",
     },
     {
-        id: 11,
+        id: 510,
         featured: "FEATURED",
         discount: "SALE",
         description: "3L Water Bladder",
@@ -705,7 +829,7 @@ const bags = [
         image: "images/bag11.jpg",
     },
     {
-        id: 12,
+        id: 511,
         featured: "FEATURED",
         discount: "SALE",
         description: "Chest Rig Bag",
@@ -716,36 +840,45 @@ const bags = [
 
 ]
 
-const bagsectionContainer = document.querySelector('.bagsContainer');
-bagsectionContainer.innerHTML = "";
+const bagsContainer = document.querySelector('.bagsContainer');
+bagsContainer.innerHTML = "";
 
-bags.forEach((bag, index)=>{
-    bagProduct = document.createElement('div');
-    bagProduct.className = ".bagsContainer product";
+bags.forEach((bag)=>{
+    const bagProduct = document.createElement('div');
+    bagProduct.className = "product";
+    bagProduct.dataset.id = bag.id;
     bagProduct.innerHTML = `
-                <div class="ftre">
-                    <p class="featured" style="visibility: hidden";>FEATURED</p>
-                    <p class="discount">${-(((bags[index].firstprice - bags[index].secondprice) / bags[index].firstprice) * 100).toFixed(0)}%</p>
-                </div>
-                <div class="l-icons" style="visibility: hidden";>
-                    <i class='bx bx-heart' style="visibility: visible";></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="${bags[index].image}" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">${bags[index].description}</p>
-                <p class="price"><span class="first-price">Ksh${bags[index].firstprice}</span><span style="visibility: hidden";>0</span>Ksh${bags[index].secondprice}</p>`;
-                bagsectionContainer.appendChild(bagProduct);
-});
+        <div class="ftre">
+            <p class="discount">-${(((bag.firstprice - bag.secondprice) / bag.firstprice) * 100).toFixed(0)}%</p>
+        </div>
+        <div class="l-icons">
+            <i class='bx bx-heart'></i>
+        </div>
+        <div class="image">
+            <img src="${bag.image}" alt="${bag.description}">
+        </div>
+        <i class='bx bx-cart'></i>
+        <p class="description">${bag.description}</p>
+        <p class="price">
+            <span class="first-price">Ksh${bag.firstprice}</span><span style="visibility: hidden;">0</span> Ksh${bag.secondprice}
+        </p>
+    `;
+    const cartIcon = bagProduct.querySelector('.bx-cart');
+    cartIcon.addEventListener('click', () => {
+        addToCart(bag);
+    });
+
+    bagsContainer.appendChild(bagProduct);
+})
+
+
+
 
 
 //section accessories
 accessories = [
     {
-        id: 1,
+        id: 600,
         featured: "FEATURED",
         discount: "SALE",
         description: "Remax RPP-550",
@@ -754,7 +887,7 @@ accessories = [
         image: "images/accessory1.jpg",
     },
     {
-        id: 2,
+        id: 601,
         featured: "FEATURED",
         discount: "SALE",
         description: "Remax RPP-550",
@@ -763,7 +896,7 @@ accessories = [
         image: "images/accessory2.jpg",
     },
     {
-        id: 3,
+        id: 602,
         featured: "FEATURED",
         discount: "SALE",
         description: "Onoedio Pro-M Wireless",
@@ -772,7 +905,7 @@ accessories = [
         image: "images/accessory3.jpg",
     },
     {
-        id: 4,
+        id: 603,
         featured: "FEATURED",
         discount: "SALE",
         description: "X-55 Wireless Earphones",
@@ -781,7 +914,7 @@ accessories = [
         image: "images/accessory4.jpg",
     },
     {
-        id: 5,
+        id: 604,
         featured: "FEATURED",
         discount: "SALE",
         description: "Baofeng UV82",
@@ -790,7 +923,7 @@ accessories = [
         image: "images/accessory5.png",
     },
     {
-        id: 6,
+        id: 605,
         featured: "FEATURED",
         discount: "SALE",
         description: "Baofeng UV5R",
@@ -799,7 +932,7 @@ accessories = [
         image: "images/accessory6.png",
     },
     {
-        id: 7,
+        id: 606,
         featured: "FEATURED",
         discount: "SALE",
         description: "Baofeng UV5R",
@@ -808,7 +941,7 @@ accessories = [
         image: "images/accessory7.jpg",
     },
     {
-        id: 8,
+        id: 607,
         featured: "FEATURED",
         discount: "SALE",
         description: "Baofeng Dual Band",
@@ -817,7 +950,7 @@ accessories = [
         image: "images/accessory8.jpg",
     },
     {
-        id: 9,
+        id: 608,
         featured: "FEATURED",
         discount: "SALE",
         description: "Baofeng UV5R",
@@ -827,36 +960,43 @@ accessories = [
     }
 ]
 
-const accessorysectionContainer = document.querySelector('.accessoriesContainer');
-accessorysectionContainer.innerHTML = "";
+const accessoriesContainer = document.querySelector('.accessoriesContainer');
+accessoriesContainer.innerHTML = "";
 
-accessories.forEach((accesory, index)=>{
-    accessoryProduct = document.createElement('div');
-    accessoryProduct.className = ".accessoriesContainer product";
+accessories.forEach((accessory)=>{
+    const accessoryProduct = document.createElement('div');
+    accessoryProduct.className = "product";
+    accessoryProduct.dataset.id = accessory.id;
     accessoryProduct.innerHTML = `
-                <div class="ftre">
-                    <p class="featured" style="visibility: hidden";>FEATURED</p>
-                    <p class="discount">${-(((accessories[index].firstprice - accessories[index].secondprice) / accessories[index].firstprice) * 100).toFixed(0)}%</p>
-                </div>
-                <div class="l-icons" style="visibility: hidden";>
-                    <i class='bx bx-heart' style="visibility: visible";></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="${accessories[index].image}" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">${accessories[index].description}</p>
-                <p class="price"><span class="first-price">Ksh${accessories[index].firstprice}</span><span style="visibility: hidden";>0</span>Ksh${accessories[index].secondprice}</p>`;
-                accessorysectionContainer.appendChild(accessoryProduct);
-});
+        <div class="ftre">
+            <p class="discount">-${(((accessory.firstprice - accessory.secondprice) / accessory.firstprice) * 100).toFixed(0)}%</p>
+        </div>
+        <div class="l-icons">
+            <i class='bx bx-heart'></i>
+        </div>
+        <div class="image">
+            <img src="${accessory.image}" alt="${accessory.description}">
+        </div>
+        <i class='bx bx-cart'></i>
+        <p class="description">${accessory.description}</p>
+        <p class="price">
+            <span class="first-price">Ksh${accessory.firstprice}</span><span style="visibility: hidden;">0</span> Ksh${accessory.secondprice}
+        </p>
+    `;
+    const cartIcon = accessoryProduct.querySelector('.bx-cart');
+    cartIcon.addEventListener('click', () => {
+        addToCart(accessory);
+    });
+
+    accessoriesContainer.appendChild(accessoryProduct);
+})
+
 
 
 //section camping gear
 const camping = [
     {
-        id: 1,
+        id: 700,
         featured: "FEATURED",
         discount: "SALE",
         description: "Outdoor Foldable Bed",
@@ -865,7 +1005,7 @@ const camping = [
         image: "images/camping1.jpg",
     },
     {
-        id: 2,
+        id: 701,
         featured: "FEATURED",
         discount: "SALE",
         description: "Outdoor Foldable Chair",
@@ -874,7 +1014,7 @@ const camping = [
         image: "images/camping2.jpg",
     },
     {
-        id: 3,
+        id: 702,
         featured: "FEATURED",
         discount: "SALE",
         description: "Survival Kit",
@@ -883,7 +1023,7 @@ const camping = [
         image: "images/camping3.png",
     },
     {
-        id: 4,
+        id: 703,
         featured: "FEATURED",
         discount: "SALE",
         description: "Double ARC Lighter",
@@ -892,7 +1032,7 @@ const camping = [
         image: "images/camping4.png",
     },
     {
-        id: 5,
+        id: 704,
         featured: "FEATURED",
         discount: "SALE",
         description: "Sleeping Bag",
@@ -901,7 +1041,7 @@ const camping = [
         image: "images/camping5.jpg",
     },
     {
-        id: 6,
+        id: 705,
         featured: "FEATURED",
         discount: "SALE",
         description: "Inflateble Sleeping Mat",
@@ -910,7 +1050,7 @@ const camping = [
         image: "images/camping6.jpg",
     },
     {
-        id: 7,
+        id: 706,
         featured: "FEATURED",
         discount: "SALE",
         description: "Waterproof Tent",
@@ -920,36 +1060,45 @@ const camping = [
     }
 ]
 
-const campinggearContainer = document.querySelector('.campinggearContainer');
-campinggearContainer.innerHTML = "";
+const campingContainer = document.querySelector('.campinggearContainer');
+campingContainer.innerHTML = "";
 
-camping.forEach((campItem, index)=>{
-    campitemProduct = document.createElement('div');
-    campitemProduct.className = ".campinggearContainer product";
-    campitemProduct.innerHTML = `
-                <div class="ftre">
-                    <p class="featured" style="visibility: hidden";>FEATURED</p>
-                    <p class="discount">${-(((camping[index].firstprice - camping[index].secondprice) / camping[index].firstprice) * 100).toFixed(0)}%</p>
-                </div>
-                <div class="l-icons" style="visibility: hidden";>
-                    <i class='bx bx-heart' style="visibility: visible";></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="${camping[index].image}" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">${camping[index].description}</p>
-                <p class="price"><span class="first-price">Ksh${camping[index].firstprice}</span><span style="visibility: hidden";>0</span>Ksh${camping[index].secondprice}</p>`;
-                campinggearContainer.appendChild(campitemProduct);
-});
+camping.forEach((camp)=>{
+    const campingProduct = document.createElement('div');
+    campingProduct.className = "product";
+    campingProduct.dataset.id = camp.id;
+    campingProduct.innerHTML = `
+        <div class="ftre">
+            <p class="discount">-${(((camp.firstprice - camp.secondprice) / camp.firstprice) * 100).toFixed(0)}%</p>
+        </div>
+        <div class="l-icons">
+            <i class='bx bx-heart'></i>
+        </div>
+        <div class="image">
+            <img src="${camp.image}" alt="${camp.description}">
+        </div>
+        <i class='bx bx-cart'></i>
+        <p class="description">${camp.description}</p>
+        <p class="price">
+            <span class="first-price">Ksh${camp.firstprice}</span><span style="visibility: hidden;">0</span> Ksh${camp.secondprice}
+        </p>
+    `;
+    const cartIcon = campingProduct.querySelector('.bx-cart');
+    cartIcon.addEventListener('click', () => {
+        addToCart(camp);
+    });
+
+    campingContainer.appendChild(campingProduct);
+})
+
+
+
 
 
 //section boots
-boots = [
+const boots = [
     {
-        id: 1,
+        id: 800,
         featured: "FEATURED",
         discount: "SALE",
         description: "Hiking boots",
@@ -958,7 +1107,7 @@ boots = [
         image: "images/boot1.jpg",
     },
     {
-        id: 2,
+        id: 801,
         featured: "FEATURED",
         discount: "SALE",
         description: "Desert Waterproof",
@@ -967,7 +1116,7 @@ boots = [
         image: "images/boot2.jpg",
     },
     {
-        id: 3,
+        id: 802,
         featured: "FEATURED",
         discount: "SALE",
         description: "Lowa Desert Waterproof",
@@ -976,7 +1125,7 @@ boots = [
         image: "images/boot3.jpg",
     },
     {
-        id: 4,
+        id: 803,
         featured: "FEATURED",
         discount: "SALE",
         description: "Lowa Desert Waterproof",
@@ -985,7 +1134,7 @@ boots = [
         image: "images/boot4.jpg",
     },
     {
-        id: 5,
+        id: 804,
         featured: "FEATURED",
         discount: "SALE",
         description: "Siwar Desert Waterproof",
@@ -994,7 +1143,7 @@ boots = [
         image: "images/boot5.png",
     },
     {
-        id: 6,
+        id: 805,
         featured: "FEATURED",
         discount: "SALE",
         description: "Lowa Desert Waterproof",
@@ -1003,7 +1152,7 @@ boots = [
         image: "images/boot6.jpg",
     },
     {
-        id: 7,
+        id: 806,
         featured: "FEATURED",
         discount: "SALE",
         description: "Low Cut Desert Boot",
@@ -1012,7 +1161,7 @@ boots = [
         image: "images/boot7.jpg",
     },
     {
-        id: 8,
+        id: 807,
         featured: "FEATURED",
         discount: "SALE",
         description: "5.11 Tactical Series",
@@ -1021,7 +1170,7 @@ boots = [
         image: "images/boot8.jpg",
     },
     {
-        id: 9,
+        id: 808,
         featured: "FEATURED",
         discount: "SALE",
         description: "Low Cut Tactical Series",
@@ -1030,7 +1179,7 @@ boots = [
         image: "images/boot9.jpg",
     },
     {
-        id: 10,
+        id: 809,
         featured: "FEATURED",
         discount: "SALE",
         description: "5.11 Tactical Series",
@@ -1039,7 +1188,7 @@ boots = [
         image: "images/boot10.jpg",
     },
     {
-        id: 11,
+        id: 810,
         featured: "FEATURED",
         discount: "SALE",
         description: "Low Cut Tactical Series",
@@ -1048,39 +1197,154 @@ boots = [
         image: "images/boot11.jpg",
     },
     {
-        id: 12,
+        id: 811,
         featured: "FEATURED",
         discount: "SALE",
         description: "Lowa Desert Waterproof",
         firstprice: 6500.00,
         secondprice: 5500.00,
         image: "images/boot12.jpg",
+    },
+    {
+        id: 812,
+        featured: "FEATURED",
+        discount: "SALE",
+        description: "Lowa Desert Waterproof",
+        firstprice: 6500.00,
+        secondprice: 5500.00,
+        image: "images/boot13.jpg",
     }
 ]
 
-const bootsectionContainer = document.querySelector('.bootsContainer');
-bootsectionContainer.innerHTML = "";
+const bootsContainer = document.querySelector('.bootsContainer');
+bootsContainer.innerHTML = "";
 
-boots.forEach((bootproduct, index)=>{
-    bootproductContainer = document.createElement('div');
-    bootproductContainer.className = ".bootsContainer product";
-    bootsectionContainer.dataset.id =  `${boots[index].id}`;
-    bootproductContainer.innerHTML = `
-                <div class="ftre">
-                    <p class="featured" style="visibility: hidden";>FEATURED</p>
-                    <p class="discount">${-(((boots[index].firstprice - boots[index].secondprice) / boots[index].firstprice) * 100).toFixed(0)}%</p>
-                </div>
-                <div class="l-icons" style="visibility: hidden";>
-                    <i class='bx bx-heart' style="visibility: visible";></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="${boots[index].image}" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">${boots[index].description}</p>
-                <p class="price"><span class="first-price">Ksh${boots[index].firstprice}</span><span style="visibility: hidden";>0</span>Ksh${boots[index].secondprice}</p>`;
-                bootsectionContainer.appendChild(bootproductContainer);
-});
+boots.forEach((boot)=>{
+    const bootProduct = document.createElement('div');
+    bootProduct.className = "product";
+    bootProduct.innerHTML = `
+        <div class="ftre">
+            <p class="discount">-${(((boot.firstprice - boot.secondprice) / boot.firstprice) * 100).toFixed(0)}%</p>
+        </div>
+        <div class="l-icons">
+            <i class='bx bx-heart'></i>
+        </div>
+        <div class="image">
+            <img src="${boot.image}" alt="${boot.description}">
+        </div>
+        <i class='bx bx-cart'></i>
+        <p class="description">${boot.description}</p>
+        <p class="price">
+            <span class="first-price">Ksh${boot.firstprice}</span><span style="visibility: hidden;">0</span> Ksh${boot.secondprice}
+        </p>
+    `;
+    const cartIcon = bootProduct.querySelector('.bx-cart');
+    cartIcon.addEventListener('click', () => {
+        addToCart(boot);
+    });
 
+    bootsContainer.appendChild(bootProduct);
+})
+
+
+//delivery details
+const toCheckout = document.querySelector('.checkOut');
+const form = document.querySelector('.delivery-form');
+toCheckout.addEventListener('click', ()=>{
+    form.classList.add('active');
+})
+
+const checkoutBtn = document.querySelector('.check-out');
+checkoutBtn.addEventListener('click', ()=>{
+    const name = document.querySelector('#name').value.trim();
+    const phone = document.querySelector('#phone').value.trim();
+    const address = document.querySelector('#address').value.trim();
+
+    if (!name || !phone || !address) {
+        alert('Please fill out all delivery details.');
+        return;
+    }
+
+    if (cartItems.length === 0) {
+        alert('Your cart is empty! Please add items to your cart.');
+        return;
+    }
+
+    //cart details
+    const cartDetails = cartItems.map(item => ({
+        description: item.description,
+        quantity: item.quantity,
+        price: item.secondprice,
+        total: item.quantity * item.secondprice
+    }));
+    
+    //time stamp
+    const now = new Date();
+    const timestamp = now.toLocaleString('en-KE', { timeZone: 'Africa/Nairobi' });
+    
+    //order data
+    const grandTotal = cartDetails.reduce((sum, item) => sum + item.total, 0);
+    const orderData = {
+        customer: { name, phone, address },
+        cart: cartDetails,
+        grandTotal,
+        timestamp
+    };
+
+    // Format message for email
+    let message = `Customer Order Details:\n\n`;
+    message += `Timestamp: ${timestamp}\n`;
+    message += `Name: ${name}\nPhone: ${phone}\nAddress: ${address}\n\n`;
+    cartDetails.forEach((item, index) => {
+        message += `${index + 1}. ${item.description}\n   Quantity: ${item.quantity}\n   Price: Ksh${item.price}\n   Total: Ksh${item.total}\n\n`;
+    });
+    message += `Grand Total: Ksh${grandTotal}`;
+
+    // Send the order
+    sendEmail(message, orderData);
+})
+
+// Function to send email using EmailJS
+function sendEmail(message, orderData) {
+    const serviceID = 'service_u8xo7wm';
+    const templateID = 'template_bovgtmh';
+    const publicKey = 'JDh3Q2RGglLsSz2w6';
+
+    emailjs.init(publicKey); // Initialize EmailJS with your public key
+
+    emailjs.send(serviceID, templateID, {
+        message: message,
+    }).then(response => {
+        alert('Order placed successfully!');
+        console.log('Email sent', response);
+
+        // Empty the cart and update UI
+        localStorage.setItem('cart', JSON.stringify([]));
+
+        // Clear delivery form
+        document.querySelector('.delivery-form').reset();
+    }).catch(error => {
+        alert('Failed to send order. Please try again.');
+        console.error('Email send error', error);
+    });
+}
+
+
+
+
+
+
+
+//.......
+emailjs.send("service_u8xo7wm","template_bovgtmh",{
+    timestamp: "13:03",
+    name: "muthoni",
+    phone: "0110125463",
+    address: "weuhru",
+    description: "asap",
+    quantity: "34",
+    price: "2100",
+    total: "4200",
+    grandTotal: "34500",
+    reply_to: "gero",
+    });
