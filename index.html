@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="index.css">
     <!--box icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 </head>
 <body>
     <!--button top-->
@@ -22,36 +24,24 @@
 
     <!--search icon top-->
     <div class="search active">
-        <input type="text">
+        <input type="text" name="product-search">
         <i class="bx bx-search"></i>
     </div>
     
     <!--wish list container-->
-    <div class="wishlist">
-        <h1>Wishlist</h1>
+    <div class="cartTab">
+        <h1 id="cartHead">Shopping Cart</h1>
         <div class="listCart">
             <div class="item">
-                <div class="image">
-                    <img src="images/accessory1.jpg" alt="">
-                </div>
-                <div class="name">
-                    NAME
-                </div>
-                <div class="totalPrice">
-                    Ksh 400
-                </div>
-                <div class="quantity">
-                    <span class="minus">-</span>
-                    <span>1</span>
-                    <span class="plus">+</span>
-                </div>
+                
             </div>
         </div>
-        <button>CHECK OUT</button>
-        <div class="close wishclose"><i class='bx bx-chevron-right'></i></div>
+        <div class="btn">
+            <button class="close">CLOSE</button>
+            <button class="checkOut">CHECK OUT</button>
+        </div>
     </div>
 
-    <div class="wish-show"><i class='bx bx-heart' ></i></div>
 
 
     <!--home banner-->
@@ -82,25 +72,7 @@
     <section class="advert-size">
         <h1 class="header">HOT DEALS</h1>
         <div class="holder advert-sizeContainer">
-            <!--banner-->
-            <div class="banner">
-                <!--
-                <div class="ftre">
-                    <p class="featured">FEATURED</p>
-                    <p class="discount">-38%</p>
-                </div>
-                <div class="l-icons">
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="images/hot deal1.png" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">50l Waterproof Tactical</p>
-                <p class="price"><span class="first-price">Ksh6,500.00</span>Ksh4,000.00</p> -->
-            </div>
+            
         </div>
     </section>
 
@@ -108,53 +80,19 @@
     <section class="new-arrivals">
         <h1 class="header">NEW ARRIVALS</h1>
         <div class="holder newarrivalsContainer">
-            <!--box-->
-            <div class="banner">
-                <!--
-                <div class="ftre">
-                    <p class="featured">FEATURED</p>
-                    <p class="discount">-38%</p>
-                </div>
-                <div class="l-icons">
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="images/black tshirt.jpg" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">50l Waterproof Tactical</p>
-                <p class="price"><span class="first-price">Ksh6,500.00</span>Ksh4,000.00</p>-->
-            </div>
+            
         </div>
     </section>
 
     <!--normal size-->
-    <section class="hot-deals">
+    <section class="clothing">
         <div class="heading">
             <h1>CLOTHING</h1>
             <button>SEE ALL <i class='bx bx-right-arrow-alt'></i></button>
         </div>
         <div class="container clothingsectionContainer">
-            <!--banner-->
-            <!--
             <div class="product">
-                <div class="ftre">
-                    <p class="featured">FEATURED</p>
-                    <p class="discount">-38%</p>
-                </div>
-                <div class="l-icons">
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="images/hot deal1.png" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">50l Waterproof Tactical</p>
-                <p class="price"><span class="first-price">Ksh6,500.00</span>Ksh4,000.00</p>-->
+                
             </div>
         </div>
     </section>
@@ -166,24 +104,7 @@
             <button>SEE ALL <i class='bx bx-right-arrow-alt'></i></button>
         </div>
         <div class="container clothingaccessoriesContainer">
-            <!--
-            <div class="product">
-                <div class="ftre">
-                    <p class="featured">FEATURED</p>
-                    <p class="discount">-38%</p>
-                </div>
-                <div class="l-icons">
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="images/hot deal1.png" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">50l Waterproof Tactical</p>
-                <p class="price"><span class="first-price">Ksh6,500.00</span>Ksh4,000.00</p>-->
-            </div>
+            
         </div>
     </section>
 
@@ -194,24 +115,7 @@
             <button>SEE ALL <i class='bx bx-right-arrow-alt'></i></button>
         </div>
         <div class="container watchesContainer">
-            <!--
-            <div class="product">
-                <div class="ftre">
-                    <p class="featured">FEATURED</p>
-                    <p class="discount">-38%</p>
-                </div>
-                <div class="l-icons">
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="images/hot deal1.png" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">50l Waterproof Tactical</p>
-                <p class="price"><span class="first-price">Ksh6,500.00</span>Ksh4,000.00</p>-->
-            </div>
+            
         </div>
     </section>
 
@@ -222,24 +126,7 @@
             <button>SEE ALL <i class='bx bx-right-arrow-alt'></i></button>
         </div>
         <div class="container bagsContainer">
-            <!--
-            <div class="product">
-                <div class="ftre">
-                    <p class="featured">FEATURED</p>
-                    <p class="discount">-38%</p>
-                </div>
-                <div class="l-icons">
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="images/hot deal1.png" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">50l Waterproof Tactical</p>
-                <p class="price"><span class="first-price">Ksh6,500.00</span>Ksh4,000.00</p>-->
-            </div>
+            
         </div>
     </section>
 
@@ -250,24 +137,7 @@
             <button>SEE ALL <i class='bx bx-right-arrow-alt'></i></button>
         </div>
         <div class="container accessoriesContainer">
-            <!--
-            <div class="product">
-                <div class="ftre">
-                    <p class="featured">FEATURED</p>
-                    <p class="discount">-38%</p>
-                </div>
-                <div class="l-icons">
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="images/hot deal1.png" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">50l Waterproof Tactical</p>
-                <p class="price"><span class="first-price">Ksh6,500.00</span>Ksh4,000.00</p>-->
-            </div>
+            
         </div>
     </section>
 
@@ -278,24 +148,7 @@
             <button>SEE ALL <i class='bx bx-right-arrow-alt'></i></button>
         </div>
         <div class="container campinggearContainer">
-            <!--
-            <div class="product">
-                <div class="ftre">
-                    <p class="featured">FEATURED</p>
-                    <p class="discount">-38%</p>
-                </div>
-                <div class="l-icons">
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="images/hot deal1.png" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">50l Waterproof Tactical</p>
-                <p class="price"><span class="first-price">Ksh6,500.00</span>Ksh4,000.00</p>-->
-            </div>
+            
         </div>
     </section>
 
@@ -305,25 +158,8 @@
             <h1>BOOTS</h1>
             <button>SEE ALL <i class='bx bx-right-arrow-alt'></i></button>
         </div>
-        <div class="bootsContainer container ">
-            <!--
-            <div class="product">
-                <div class="ftre">
-                    <p class="featured">FEATURED</p>
-                    <p class="discount">-38%</p>
-                </div>
-                <div class="l-icons">
-                    <i class='bx bx-heart' ></i>
-                    <i class='bx bx-low-vision'></i>
-                    <i class='bx bx-revision' ></i>
-                </div>
-                <div class="image">
-                    <img src="images/hot deal1.png" alt="">
-                </div>
-                <i class='bx bx-cart'></i>
-                <p class="description">50l Waterproof Tactical</p>
-                <p class="price"><span class="first-price">Ksh6,500.00</span>Ksh4,000.00</p>-->
-            </div>
+        <div class="container bootsContainer">
+            
         </div>
     </section>
 
@@ -341,8 +177,8 @@
             <i class='bx bx-search-alt-2' ></i>
             <p>Search</p>
         </a>
-        <a href="#">
-            <i class='bx bx-cart' ></i>
+        <a>
+            <i class='bx bx-cart'></i>
             <p>Cart</p>
         </a>
     </div>
@@ -369,14 +205,33 @@
                 </div>
             </div>
             <div class="footer-detail">
-                <div class="opening"><p>Monday-Friday</p><p>08:00-19:00</p></div>
-                <div class="opening"><p>Saturday</p><p>08:00-19:00</p></div>
+                <div class="opening"><p>Monday-Friday</p><p>08:00 - 19:00</p></div>
+                <div class="opening"><p>Saturday</p><p>08:00 - 19:00</p></div>
                 <div class="opening"><p>Sunday</p><p>Closed</p></div>
                 <img src="images/payment.png" alt="">
             </div>
         </div>
         <div class="copyright">&copy; - 2024 All Rights Reserved</div>
     </section>
+
+    <!--delivery form details-->
+    <form action="" class="delivery-form">
+        <header class="header">
+            <img src="images/tof logo.jpg" alt="logo">
+        </header>
+        <h2>Delivery Details</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" required>
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="0700000000" required>
+        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" placeholder="Delivery location" required></textarea>
+        
+        <button type="button" class="check-out">CHECK OUT</button>
+    </form>
+
 
     <script src="index.js"></script>
 </body>
