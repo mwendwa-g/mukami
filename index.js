@@ -1247,7 +1247,11 @@ boots.forEach((boot)=>{
 })
 
 
-//delivery details
+
+
+
+
+//delivery details form
 const toCheckout = document.querySelector('.checkOut');
 const form = document.querySelector('.delivery-form');
 toCheckout.addEventListener('click', ()=>{
@@ -1256,9 +1260,9 @@ toCheckout.addEventListener('click', ()=>{
 
 const checkoutBtn = document.querySelector('.check-out');
 checkoutBtn.addEventListener('click', ()=>{
-    const name = document.querySelector('#name').value.trim();
-    const phone = document.querySelector('#phone').value.trim();
-    const address = document.querySelector('#address').value.trim();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
 
     if (!name || !phone || !address) {
         alert('Please fill out all delivery details.');
@@ -1301,33 +1305,20 @@ checkoutBtn.addEventListener('click', ()=>{
     message += `Grand Total: Ksh${grandTotal}`;
 
     // Send the order
-    sendEmail(message, orderData);
+    emailjs.send("service_u8xo7wm","template_bovgtmh",{
+        name: name,
+        message: message,
+        })
+        .then(response => {
+            alert('Your order has been sent');
+            localStorage.setItem('cart', JSON.stringify([]));
+            document.querySelector('.delivery-form').reset();
+        }).catch(error => {
+            alert('Failed to send order. Please try again.');
+            console.error('Email send error', error);
+        });
 })
 
-// Function to send email using EmailJS
-function sendEmail(message, orderData) {
-    const serviceID = 'service_u8xo7wm';
-    const templateID = 'template_bovgtmh';
-    const publicKey = 'JDh3Q2RGglLsSz2w6';
-
-    emailjs.init(publicKey); // Initialize EmailJS with your public key
-
-    emailjs.send(serviceID, templateID, {
-        message: message,
-    }).then(response => {
-        alert('Order placed successfully!');
-        console.log('Email sent', response);
-
-        // Empty the cart and update UI
-        localStorage.setItem('cart', JSON.stringify([]));
-
-        // Clear delivery form
-        document.querySelector('.delivery-form').reset();
-    }).catch(error => {
-        alert('Failed to send order. Please try again.');
-        console.error('Email send error', error);
-    });
-}
 
 
 
@@ -1335,16 +1326,4 @@ function sendEmail(message, orderData) {
 
 
 
-//.......
-emailjs.send("service_u8xo7wm","template_bovgtmh",{
-    timestamp: "13:03",
-    name: "muthoni",
-    phone: "0110125463",
-    address: "weuhru",
-    description: "asap",
-    quantity: "34",
-    price: "2100",
-    total: "4200",
-    grandTotal: "34500",
-    reply_to: "gero",
-    });
+
