@@ -223,6 +223,9 @@ html{
     left: 50%;
     transform: translateX(-50%);
 }
+.home .logo img{
+    height: 100px;
+}
 .home h1{
     position: absolute;
     top: 5rem;
